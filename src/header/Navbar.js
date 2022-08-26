@@ -44,7 +44,7 @@ transition: 1s;
 
 }
 &:active {
-    background: ${darken(0.2,'#FFFF66')};
+    /*background: ${darken(0.2,'#FFFF66')};*/
   }
 
 `
