@@ -1,16 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route , Routes} from 'react-router-dom'
 
-import Navbar from './header/Navbar.js'
-import CssInfo from './body/CssInfo';
+import Home from './pages/Home.js'
+import Buttons from './pages/Buttons.js'
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <CssInfo />
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/buttons' element={<Buttons />} />
+    </Routes>
 
-    </div>
   );
 }
 

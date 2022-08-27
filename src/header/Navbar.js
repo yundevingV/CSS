@@ -1,24 +1,27 @@
 import react from 'react'
 import styled from 'styled-components';
-import { darken, lighten } from 'polished';
+import { darken} from 'polished';
 import CssImgLink from './cssImg.jpg';
 
+import { Link} from 'react-router-dom'
 
 const Nav = styled.div`
 background : #FFFF66;
 width : 100%;
 height : 5rem;
-display  : inline-block
+display  : inline-block;
+margin-bottom : ${(props) => props.margin};
+
 `
 
 const CssImgWidth = '100px'
 const CssImgHeight = '80rem'
 
 const Img = styled.div`
-display  : inline-block
+display  : inline-block;
 `
 
-const MenuFontSize = '1.5rem'
+const MenuFontSize = '1.5rem';
 
 const Menu = styled.li`
 
@@ -40,8 +43,6 @@ transition: 1s;
     transition: 0.5s;
     border-bottom : solid 1px #0000FF;
 ;
-
-
 }
 &:active {
     /*background: ${darken(0.2,'#FFFF66')};*/
@@ -52,9 +53,9 @@ transition: 1s;
 
 function Navbar() {
     return (
-        <Nav> 
+        <Nav margin='2rem'> 
         <Img> <img src={CssImgLink} alt='X' width={CssImgWidth} height={CssImgHeight} /> </Img>
-        <Menu> Button </Menu>
+        <Menu> <Link to='/buttons'> Button </Link> </Menu>
         <Menu> Nav </Menu>
         <Menu> Div </Menu>
         </Nav>
