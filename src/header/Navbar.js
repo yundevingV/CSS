@@ -6,12 +6,12 @@ import CssImgLink from './cssImg.jpg';
 import { Link} from 'react-router-dom'
 
 const Nav = styled.div`
-background : #FFFF66;
+background : white;
 width : 100%;
 height : 5rem;
 display  : inline-block;
 margin-bottom : ${(props) => props.margin};
-
+border-bottom : 2px solid black;
 `
 
 const CssImgWidth = '100px'
@@ -42,20 +42,30 @@ transition: 1s;
     color: #0000FF;
     transition: 0.5s;
     border-bottom : solid 1px #0000FF;
-;
+    background: ${darken(0.1,'white')};
+
 }
 &:active {
-    /*background: ${darken(0.2,'#FFFF66')};*/
+    
   }
 
 `
+const StyledLink = styled(Link) `
+text-decoration : none;
 
+`
 
 function Navbar() {
     return (
         <Nav margin='2rem'> 
-        <Img> <img src={CssImgLink} alt='X' width={CssImgWidth} height={CssImgHeight} /> </Img>
-        <Menu> <Link to='/buttons'> Button </Link> </Menu>
+        <Img> <StyledLink to='/'>
+            <img src={CssImgLink} 
+                alt='X' 
+                width={CssImgWidth} 
+                height={CssImgHeight} />
+            </StyledLink> 
+        </Img>
+        <Menu> <StyledLink to='/buttons'> Button </StyledLink> </Menu>
         <Menu> Nav </Menu>
         <Menu> Div </Menu>
         </Nav>
