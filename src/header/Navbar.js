@@ -12,6 +12,8 @@ height : 5rem;
 display  : inline-block;
 margin-bottom : ${(props) => props.margin};
 border-bottom : 2px solid black;
+
+
 `
 
 const CssImgWidth = '100px'
@@ -48,12 +50,22 @@ transition: 1s;
 &:active {
     
   }
-
+@media (max-width : 650px) {
+    display: none;
+}
 `
 const StyledLink = styled(Link) `
 text-decoration : none;
-
 `
+
+const MiniNav = () =>{
+    return(
+        <div>
+            미니입니다.
+        </div>
+    )
+}
+
 
 function Navbar() {
     return (
