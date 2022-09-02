@@ -22,22 +22,27 @@ background : ${(props) => props.background} ;
 color : ${(props) => props.color};
 border : ${(props) => props.border};
 
-
-
 ${(props) =>
     props.button1 &&
     css`
-      color: white;
-      background: navy;
-      border-color: navy;
+    color: white;
+    background: navy;
+    border-color: navy;
 
     &:hover {
         color: #0000FF;
         transition: 0.5s;
         border-bottom : solid 1px #0000FF;
 }
-    `}
+`}
+${(props) =>
+    props.button2 &&
+    css`
+    color: red;
+    background: yellow;
 
+
+`}
 
 `
 
@@ -57,7 +62,8 @@ const ButtonViewClick = (num) =>{
         html: `
         color : <strong>${buttons[num].color}</strong> <br />
         background : <strong>${buttons[num].background}</strong> <br />
-        border : <strong>${buttons[num].border}</strong>`,
+        border : <strong>${buttons[num].border}</strong><br />
+        hover : <strong>${buttons[num].hover}</strong>`,
         showCancelButton: false,
         confirmButtonText: "확인",
     })
@@ -68,15 +74,21 @@ const ButtonViewClick = (num) =>{
 const buttons = [
     {
         id : 1,
-        color : 'red',
-        background : 'blue',
-        border : '2px solid red',
+        color : 'white',
+        background : 'navy',
+        border : 'none',
+        hover : `color: #0000FF<br />
+        transition: 0.5s<br />
+        border-bottom : solid 1px #0000FF`
     },
     {
         id : 2,
         color : 'red',
         background : 'yellow',
         border : '2px solid red',
+        hover : `
+            none
+            `
     },
     {
         id : 3,
@@ -86,7 +98,6 @@ const buttons = [
     }
 
 ]
-
 
 function ButtonsList(){
     
@@ -103,12 +114,13 @@ function ButtonsList(){
             </ButtonWrapper>
 
             <ButtonWrapper>
-            <Button color='red' background='yellow' border='2px solid red'>
+            <Button button2>
             Button2
             </Button>    
             <ButtonView onClick={() => ButtonViewClick(1)}>
             소스코드    
             </ButtonView>
+
             </ButtonWrapper>
 
         </div>
